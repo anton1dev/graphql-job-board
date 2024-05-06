@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "npm i && react-scripts start",
-    "build": "npm i && react-scripts build"
+    "build": "react-scripts build"
   },
   "dependencies": {
     "@apollo/client": "^3.10.2",
@@ -21,8 +21,7 @@
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "react-scripts": "5.0.1"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
   "browserslist": {
     "production": [

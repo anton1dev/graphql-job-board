@@ -1,7 +1,7 @@
 import { ApolloClient, ApolloLink, concat, createHttpLink, gql, InMemoryCache } from '@apollo/client';
 import { getAccessToken } from '../auth';
 
-const httpLink = createHttpLink({ uri: 'http://localhost:9000/graphql' });
+const httpLink = createHttpLink({ uri: 'https://job-board-server-48c92357ba53.herokuapp.com/graphql' });
 
 const authLink = new ApolloLink((operation, forward) => {
   const accessToken = getAccessToken();
