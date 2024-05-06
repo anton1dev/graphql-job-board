@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.10.2",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "bulma": "^0.9.4",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
@@ -20,9 +21,7 @@
     "react-router-dom": "^6.10.0",
     "react-scripts": "^5.0.1"
   },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
-  },
+  "devDependencies": {},
   "browserslist": {
     "production": [
       ">0.2%",
