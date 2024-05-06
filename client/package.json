@@ -1,7 +1,9 @@
 {
   "name": "job-board-client",
   "private": true,
-  "license": "MIT",
+  "engines": {
+    "node": "21.6.0"
+  },
   "scripts": {
     "start": "npm i && react-scripts start",
     "build": "npm i && react-scripts build"
