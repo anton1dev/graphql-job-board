@@ -7,7 +7,7 @@
     "node": "21.6.0"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "npm i && nodemon server.js"
   },
   "dependencies": {
     "@apollo/server": "^4.10.4",
