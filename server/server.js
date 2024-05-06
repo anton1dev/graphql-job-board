@@ -32,7 +32,7 @@ const apolloServer = new ApolloServer({ typeDefs, resolvers });
 await apolloServer.start();
 app.use('/graphql', apolloMiddleware(apolloServer, { context: getContext }));
 
-app.listen({ port: PORT }, () => {
+app.listen(process.env.PORT || PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`GraphQL endpoint: http://localhost:${PORT}/graphql`);
 });
