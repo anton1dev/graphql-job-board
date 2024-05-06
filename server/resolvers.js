@@ -33,7 +33,6 @@ export const resolvers = {
   Mutation: {
     createJob: (_root, { input: { title, description } }, { user }) => {
       if (!user) {
-        console.log(user);
         throw unauthorizedError('Missing auth');
       }
       return createJob({ companyId: user.companyId, title, description });
