@@ -3,8 +3,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "npm install && react-scripts start",
-    "build": "react-scripts build"
+    "start": "npm i && react-scripts start",
+    "build": "npm i && react-scripts build"
   },
   "dependencies": {
     "@apollo/client": "^3.10.2",
