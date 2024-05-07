@@ -3,7 +3,7 @@
 // for better security. Also, it doesn't handle token expiration.
 import jwtDecode from 'jwt-decode';
 
-const API_URL = 'https://job-board-server-48c92357ba53.herokuapp.com/';
+const API_URL = 'https://job-board-server-48c92357ba53.herokuapp.com';
 
 const ACCESS_TOKEN_KEY = 'accessToken';
 
