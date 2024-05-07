@@ -22,7 +22,6 @@ function JobPage() {
       </h1>
       <h2 className="subtitle is-4">
         <Link to={`/companies/${job.company.id}`}>
-          {job.company.name}
         </Link>
         <span>{job.company.id}</span>
       </h2>
