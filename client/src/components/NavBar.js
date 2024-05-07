@@ -23,10 +23,7 @@ function NavBar({ user, onLogout }) {
           <Link className="navbar-item" to="/jobs/new">
             Post Job
           </Link>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="navbar-item" onClick={handleLogout}>
-            Logout
-          </a>
+          <Link className='navbar-item' to={handleLogout}>Logout</Link>
         </div>
       ) : (
         <div className="navbar-end">

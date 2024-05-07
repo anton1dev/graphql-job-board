@@ -5,8 +5,11 @@
     "node": "21.6.0"
   },
   "scripts": {
-    "start": "npm i && react-scripts start",
-    "build": "react-scripts build"
+    "start": "npm i && build && react-scripts start",
+    "build": "lint: fix && format && react-scripts build",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@apollo/client": "^3.10.2",
@@ -21,7 +24,11 @@
     "react-router-dom": "^6.10.0",
     "react-scripts": "^5.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.1.0"
+  },
   "browserslist": {
     "production": [
       ">0.2%",

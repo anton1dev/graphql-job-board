@@ -49,21 +49,6 @@ function PageButton({ page, currentPage, onClick }) {
   );
 }
 
-/**
- * Calculates a list of at most 7 pages to display.
- * Always includes the current, previous, next, first
- * and last ones if available.
- * 
- * @returns an array with the page numbers to display.
- * It can include the special `'<'` and `'>'` elements
- * to represent skipped pages.
- * 
- * @example
- * getVisiblePages(4, 5) // => [1, 2, 3, 4, 5]
- * getVisiblePages(4, 8) // => [1, 2, 3, 4, 5, '>', 8]
- * getVisiblePages(5, 8) // => [1, '<', 4, 5, 6, 7, 8]
- * getVisiblePages(5, 10) // => [1, '<', 4, 5, 6, '>', 10]
- */
 function getVisiblePages(current, total) {
   if (total <= 7) {
     return range(total);

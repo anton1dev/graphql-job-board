@@ -8,10 +8,7 @@ const API_URL = 'https://job-board-server-48c92357ba53.herokuapp.com/';
 const ACCESS_TOKEN_KEY = 'accessToken';
 
 export function getAccessToken() {
-  if (localStorage.getItem(ACCESS_TOKEN_KEY)) {
-    console.log(localStorage.getItem(ACCESS_TOKEN_KEY));
-  }
-  return localStorage.getItem(ACCESS_TOKEN_KEY);
+  return localStorage.getItem(ACCESS_TOKEN_KEY) ?? undefined;
 }
 
 export async function login(email, password) {

@@ -4,17 +4,15 @@ import { useCompany } from '../lib/graphql/hooks';
 
 function CompanyPage() {
   const { companyId } = useParams();
-  const { data, loading, error } = useCompany(companyId);
+  const { company, loading, error } = useCompany(companyId);
 
   if (loading) {
     return <div>Loading...</div>
   }
 
   if (error) {
-    return <div className='has-text-danger'>Error!</div>
+    return <div className='has-text-danger'>Error! id is {companyId}</div>
   }
-
-  const { company } = data;
 
   return (
     <div>

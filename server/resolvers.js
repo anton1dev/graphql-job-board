@@ -1,7 +1,15 @@
-import { GraphQLError } from 'graphql';
+import { GraphQLError } from "graphql";
 
-import { countJobs, createJob, deleteJob, getJob, getJobs, getJobsByCompany, updateJob } from './db/jobs.js';
-import { getCompany } from './db/companies.js';
+import {
+  countJobs,
+  createJob,
+  deleteJob,
+  getJob,
+  getJobs,
+  getJobsByCompany,
+  updateJob,
+} from "./db/jobs.js";
+import { getCompany } from "./db/companies.js";
 
 export const resolvers = {
   Query: {
@@ -9,7 +17,7 @@ export const resolvers = {
       const company = await getCompany(companyId);
 
       if (!company) {
-        throw notFoundError('No company with id found. Id is ' + id)
+        throw notFoundError("No company with id found. Id is " + companyId);
       }
 
       return company;
@@ -18,7 +26,7 @@ export const resolvers = {
       const job = await getJob(id);
 
       if (!job) {
-        throw notFoundError('No Job found with id: ', id);
+        throw notFoundError("No Job found with id: ", id);
       }
 
       return job;
@@ -26,26 +34,30 @@ export const resolvers = {
     jobs: async (_root, { limit, offset }) => {
       const items = await getJobs(limit, offset);
       const totalCount = await countJobs();
-      return { items, totalCount }
+      return { items, totalCount };
     },
   },
 
   Mutation: {
     createJob: (_root, { input: { title, description } }, { user }) => {
       if (!user) {
-        throw unauthorizedError('Missing auth');
+        throw unauthorizedError("Missing auth");
       }
       return createJob({ companyId: user.companyId, title, description });
     },
-    updateJob: async (_root, { input: { id, title, description } }, { user }) => {
+    updateJob: async (
+      _root,
+      { input: { id, title, description } },
+      { user },
+    ) => {
       if (!user) {
-        throw unauthorizedError('Please login first!');
+        throw unauthorizedError("Please login first!");
       }
 
       const job = await updateJob(id, user.companyId);
 
       if (!job) {
-        throw notFoundError('No Job with id: ', id);
+        throw notFoundError("No Job with id: ", id);
       }
 
       return job;
@@ -53,40 +65,40 @@ export const resolvers = {
 
     deleteJob: async (_root, { id }, { user }) => {
       if (!user) {
-        throw unauthorizedError('Auth is missing');
+        throw unauthorizedError("Auth is missing");
       }
 
       const job = await deleteJob(id, user.companyId);
 
       if (!job) {
-        throw notFoundError('No Job with id: ', id);
+        throw notFoundError("No Job with id: ", id);
       }
       return job;
     },
-
   },
   Company: {
-    jobs: (company) => getJobsByCompany(company.id)
+    jobs: (company) => getJobsByCompany(company.id),
   },
 
   Job: {
-    company: (job, _args, { companyLoader }) => companyLoader.load(job.companyId),
-    date: (job) => job.createdAt.slice(0, 'yyyy-mm-dd'.length),
+    company: (job, _args, { companyLoader }) =>
+      companyLoader.load(job.companyId),
+    date: (job) => job.createdAt.slice(0, "yyyy-mm-dd".length),
   },
-}
+};
 
 function notFoundError(message) {
   return new GraphQLError(message, {
     extensions: {
-      code: 'NOT_FOUND'
-    }
-  })
+      code: "NOT_FOUND",
+    },
+  });
 }
 
 function unauthorizedError(message) {
   return new GraphQLError(message, {
     extensions: {
-      code: 'UNAUTHORIZED'
-    }
-  })
+      code: "UNAUTHORIZED",
+    },
+  });
 }

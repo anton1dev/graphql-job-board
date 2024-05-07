@@ -22,7 +22,6 @@ type JobSubList {
   totalCount: Int!
 }
 
-
 type Job {
   id: ID!
   date: String!

@@ -24,6 +24,7 @@ function JobPage() {
         <Link to={`/companies/${job.company.id}`}>
           {job.company.name}
         </Link>
+        <span>{job.company.id}</span>
       </h2>
       <div className="box">
         <div className="block has-text-grey">

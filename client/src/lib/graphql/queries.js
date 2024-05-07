@@ -33,7 +33,7 @@ const jobDetailFragment = gql`
 
 export const companyByIdQuery = gql`
   query CompanyById($id: ID!) {
-    company(id: $id) {
+    company(companyId: $id) {
       id
       name
       description
