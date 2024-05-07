@@ -5,7 +5,7 @@
     "node": "21.6.0"
   },
   "scripts": {
-    "start": "npm i && build && react-scripts start",
+    "start": "npm i && react-scripts start",
     "build": "lint: fix && format && react-scripts build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
