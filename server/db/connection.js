@@ -1,9 +1,12 @@
 import knex from "knex";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export const connection = knex({
   client: "better-sqlite3",
   connection: {
-    filename: "./data/db.sqlite3",
+    filename: process.env.CONNECTION_FILENAME,
   },
   useNullAsDefault: true,
 });
